@@ -3,69 +3,69 @@
 <html>
 <head>
 	<title>Neuigkeiten</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta name="generator" content="TextMate http://macromates.com/">
 	<meta name="author" content="Andreas Wassmer">
+<!--
   	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
   	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
   	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
-	<!-- Date: 2012-03-06 -->
+ -->
+  	<link rel="stylesheet" href="http://localhost/~wassmer/jquery/jquery.mobile-1.0a1.min.css" />
+  	<script type="text/javascript" src="http://localhost/~wassmer/jquery/jquery-1.6.1.js"></script>
+  	<script type="text/javascript" src="http://localhost/~wassmer/jquery/jquery.mobile.1.0a4.1.js"></script>
 </head>
 <body>
-  <div data-role="page" id="news" data-add-back-btn="true">
-
+  <div data-role="page" id="news">
     <div data-role="header">
 		<h1>News</h1>
 		<a href="index.html" data-rel="back" data-icon="arrow-l">Startseite</a>
     </div>
 
     <div data-role="content">
-		<div style="text-align: center;">
-        	<h2>Was gibt's Neues?</h2>
-      	</div>
-		<ul data-role="listview">
-			<li><a href="#gv">GV am 9. März 2012</a></li>
-			<li><a href="#website">Neue mobile Webseite</a></li>
-		</ul>
-    </div>
- </div>
+	<?php
+	// Use this for productive server
+	//$con = mysql_connect('phandroo.mysql.db.hostpoint.ch', 'phandroo_query', 'kreuz8.Pauken');
+	
+	//$con = mysql_connect("phandroo.mysql.db.internal", "phandroo_query", "kreuz8.Pauken");
 
- <div data-role="page" id="gv" data-add-back-btn="true">
+	// Use this for xampp
+	$con = mysql_connect('localhost', 'root', '');
 
-    <div data-role="header">
-		<h1></h1>
-		<a href="#news" data-rel="back" data-icon="arrow-l">News</a>
-    </div>
+	if (!$con) {
+	    die('keine Verbindung möglich: ' . mysql_error());
+	   }
+	// Datenbank auswählen
+	// Use this for productive server
+	//mysql_select_db("phandroo_accbagenda", $con);
 
-    <div data-role="content">
-		<div style="text-align: center;">
-        	<h2>GV am 9. März 2012</h2>
-      	</div>
-		Am 9. März 2012 findet unsere GV statt. Wir treffen uns um 20:00 Uhr im Gewölbekeller
-		des Rest. Trattoria Rotes Haus in Brugg.<br>
-		Die Traktanden wurden bereits per E-Mail an alle Mitglieder verschickt.<br><br>
-		<strong>Der Vorstand hofft auf zahlreiches Erscheinen.</strong>
-    </div>
- </div>
- <div data-role="page" id="website" data-add-back-btn="true">
+	// Use this for xampp
+	mysql_select_db("accb", $con);
 
-    <div data-role="header">
-		<h1></h1>
-		<a href="#news" data-rel="back" data-icon="arrow-l">News</a>
-    </div>
-
-    <div data-role="content">
-		<div style="text-align: center;">
-        	<h2>Mobiler Webauftritt</h2>
-      	</div>
-		Unser Club hat einen neuen mobilen Webauftritt! Die bisherige Site war für Desktop-Systeme
-		optimiert und auf allen mobilen Geräten schwer zu lesen. Andreas Wassmer hat sich diesem 
-		Problem angenommen und eine für Smartphones optimierte Version geschaffen. Sie kann über den
-		direkten Link <a href="m.accb-brugg.ch">m.accb-brugg.ch</a> erreicht werden.
-    </div>
-</div>
-
-
+	// Nur die Termine zeigen, welche nach dem aktuellen Datum liegen
+	//$result = mysql_query("SELECT * FROM Terminliste WHERE Wann >= CURDATE() ORDER BY Wann");
+	$result = mysql_query("SELECT date, title, message FROM news ORDER BY date LIMIT 0,10");
+	if (!$result) {
+	    die('Abfragen nicht m&ouml;glich ' . mysql_error());
+	   }
+	echo "<h3>Was gibt's Neues?</h3>";
+	echo "<ul data-role='listview'>";
+	// Daten ausgeben
+	while($row = mysql_fetch_array($result))
+	{
+	    echo "<li>";
+		//echo "<a href='#'>";
+		echo "<h3>" . $row[1] . "</h3>";
+		echo "<p>". $row[2] . "</p>";
+		echo "<p class='ui-li-aside'><strong>" . date("d.m.Y", strtotime($row[0])) . "</strong></p>";
+		echo "<ul>" . $row[2] . "</ul>";
+		echo "</a></li>";
+	}
+	echo "</ul>";
+	mysql_close($con);    
+	?>
+    </div> <!-- content -->
+ </div> <!-- page -->
 </body>
 </html>
