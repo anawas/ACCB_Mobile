@@ -11,10 +11,10 @@
 	<?php include("jquery_includes.html"); ?>
 </head>
 <body>
-  <div data-role="page" id="news" data-add-back-btn="true">
+  <div data-role="page" id="news">
     <div data-role="header">
 		<h1>News</h1>
-		<a href="index.html" data-rel="back" data-icon="arrow-l">Startseite</a>
+		<a href="index.php" data-icon="arrow-l">Zur&uuml;ck</a>
     </div>
 
     <div data-role="content">
@@ -28,7 +28,7 @@
 	if (!$result) {
 	    die('Abfragen nicht m&ouml;glich ' . mysql_error());
 	   }
-	echo "<h3>Was gibt's Neues?</h3>";
+	//echo "<h3>Was gibt's Neues?</h3>";
 	echo "<ul data-role='listview'>";
 	// Daten ausgeben
 	while($row = mysql_fetch_array($result))
