@@ -7,14 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta name="generator" content="TextMate http://macromates.com/">
 	<meta name="author" content="Andreas Wassmer">
-<!--
-  	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
-  	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
-  	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
- -->
-  	<link rel="stylesheet" href="http://localhost/~wassmer/jquery/jquery.mobile-1.0a1.min.css" />
-  	<script type="text/javascript" src="http://localhost/~wassmer/jquery/jquery-1.6.1.js"></script>
-  	<script type="text/javascript" src="http://localhost/~wassmer/jquery/jquery.mobile.1.0a4.1.js"></script>
+	<php include("jquery_includes.html"); ?>
 </head>
 <body>
   <div data-role="page" id="news" data-add-back-btn="true">
@@ -26,23 +19,9 @@
 
 	<div data-role="content">
 	<?php
-	// Use this for productive server
-	//$con = mysql_connect('phandroo.mysql.db.hostpoint.ch', 'phandroo_query', 'kreuz8.Pauken');
-	
-	//$con = mysql_connect("phandroo.mysql.db.internal", "phandroo_query", "kreuz8.Pauken");
 
-	// Use this for xampp
-	$con = mysql_connect('localhost', 'root', '');
-
-	if (!$con) {
-	    die('keine Verbindung möglich: ' . mysql_error());
-	   }
-	// Datenbank auswählen
-	// Use this for productive server
-	//mysql_select_db("phandroo_accbagenda", $con);
-
-	// Use this for xampp
-	mysql_select_db("accb", $con);
+	// change connection parameters in connect.php
+	include 'connect.php'; 
 
 	// Nur die Termine zeigen, welche nach dem aktuellen Datum liegen
 	//$result = mysql_query("SELECT * FROM Terminliste WHERE Wann >= CURDATE() ORDER BY Wann");
@@ -59,11 +38,11 @@
 		echo "<h3>" . date("d.m.Y", strtotime($row[0])) . "</h3>";
 		echo "<p><h3>" . $row[1] . "</h3></p>";
 		echo "<p class=ui-li-aside><strong>" . $row[3] . "</strong></p>";
-		echo "<ul style=margin:10px;><div>" . $row[2] . "</div></ul>";
+		echo "<ul style=margin:10px;>" . $row[2] . "</ul>";
 		echo "</li>";
 	}
 	echo "</ul>";
-	mysql_close($con);    
+	mysql_close($conn);    
 	?>
 	</div>
 
