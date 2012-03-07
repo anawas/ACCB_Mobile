@@ -8,7 +8,7 @@
 	<meta name="generator" content="TextMate http://macromates.com/">
 	<meta name="author" content="Andreas Wassmer">
 
-	<php include("jquery_includes.html"); ?>
+	<?php include("jquery_includes.html"); ?>
 </head>
 <body>
   <div data-role="page" id="news" data-add-back-btn="true">

@@ -2,18 +2,18 @@
 
 // use this for access test database on phandroo.com
 // from outside hostpoint
-// $server = "phandroo.mysql.db.hostpoint.ch";	// MySQL-Server
+ $server = "phandroo.mysql.db.hostpoint.ch";	// MySQL-Server
+ $user   = "phandroo_query";		// MySQL-Nutzer
+ $pass   = "kreuz8.Pauken";		// MySQL-Kennwort
+ $dbase  = "mysql";		// Standarddatenbank
+ $dbname = "phandroo_accb";	// Datenbankname
+
+// This is to access db from test installation on phandroo.com
+// $server = "phandroo.mysql.db.internal";	// MySQL-Server
 // $user   = "phandroo_query";		// MySQL-Nutzer
 // $pass   = "kreuz8.Pauken";		// MySQL-Kennwort
 // $dbase  = "mysql";		// Standarddatenbank
 // $dbname = "phandroo_accb";	// Datenbankname
-
-// This is to access db from test installation on phandroo.com
-$server = "phandroo.mysql.db.internal";	// MySQL-Server
-$user   = "phandroo_query";		// MySQL-Nutzer
-$pass   = "kreuz8.Pauken";		// MySQL-Kennwort
-$dbase  = "mysql";		// Standarddatenbank
-$dbname = "phandroo_accb";	// Datenbankname
 
 // and this is for offline testing using xampp
 // $server = "localhost";	// MySQL-Server

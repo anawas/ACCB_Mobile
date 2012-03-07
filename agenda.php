@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta name="generator" content="TextMate http://macromates.com/">
 	<meta name="author" content="Andreas Wassmer">
-	<php include("jquery_includes.html"); ?>
+	<?php include("jquery_includes.html"); ?>
 </head>
 <body>
   <div data-role="page" id="news" data-add-back-btn="true">
