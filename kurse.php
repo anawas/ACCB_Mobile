@@ -28,15 +28,16 @@
 	if (!$result) {
 	    die('Abfragen nicht m&ouml;glich ' . mysql_error());
 	   }
-	echo "<ul data-role='listview'>";
+	echo "<ul data-role='listview'>" . chr(10);
 	// Daten ausgeben
 	while($row = mysql_fetch_array($result))
 	{
 	    echo "<li>";
 		echo "<h3>" . $row[0] . "</h3>";
 		echo "<p>" . date("d.m.Y", strtotime($row[2])) . " bis " . date("d.m.Y", strtotime($row[3])) . "</p>";
-		echo "<ul style=margin:10px;>" . $row[1] . "</ul>";
+		echo "<ul><div style='margin:10px; font-family:Verdana;'>" . $row[1] . "</div></ul>";
 		echo "</li>";
+		echo chr(10);
 	}
 	echo "</ul>";
 	mysql_close($conn);    

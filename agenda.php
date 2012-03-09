@@ -29,7 +29,7 @@
 	    die('Abfragen nicht m&ouml;glich ' . mysql_error());
 	   }
 	echo "<h3>Veranstaltungen ab " . date("d.m.Y"). "</h3>";
-	echo "<ul data-role='listview'>";
+	echo "<ul data-role='listview'>" . chr(10);
 	// Daten ausgeben
 	while($row = mysql_fetch_array($result))
 	{
@@ -37,8 +37,9 @@
 		echo "<h3>" . date("d.m.Y", strtotime($row[0])) . "</h3>";
 		echo "<p><h3>" . $row[1] . "</h3></p>";
 		echo "<p class=ui-li-aside><strong>" . date("H.i", strtotime($row[3])) . " Uhr</strong></p>";
-		echo "<ul style=margin:10px;>" . $row[2] . "</ul>";
+		echo "<ul><div style='margin:10px;font-family:Verdana;'><strong>" . $row[1] . "</strong><br>". $row[2] . "</div></ul>";
 		echo "</li>";
+		echo chr(10);
 	}
 	echo "</ul>";
 	mysql_close($conn);    
