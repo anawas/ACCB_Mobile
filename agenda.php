@@ -36,8 +36,8 @@
 	    echo "<li>";
 		echo "<h3>" . date("d.m.Y", strtotime($row[0])) . "</h3>";
 		echo "<p><h3>" . $row[1] . "</h3></p>";
-		echo "<p class=ui-li-aside><strong>" . $row[3] . "</strong></p>";
-		echo "<ul style=margin:10px;><div>" . $row[2] . "</div></ul>";
+		echo "<p class=ui-li-aside><strong>" . date("H.i", strtotime($row[3])) . " Uhr</strong></p>";
+		echo "<ul style=margin:10px;>" . $row[2] . "</ul>";
 		echo "</li>";
 	}
 	echo "</ul>";

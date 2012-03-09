@@ -24,7 +24,7 @@
 	include 'connect.php'; 
 
 	// Nur die Termine zeigen, welche nach dem aktuellen Datum liegen
-	$result = mysql_query("SELECT date, title, message FROM news ORDER BY date LIMIT 0,10");
+	$result = mysql_query("SELECT date, title, message FROM news ORDER BY date DESC LIMIT 0,10");
 	if (!$result) {
 	    die('Abfragen nicht m&ouml;glich ' . mysql_error());
 	   }

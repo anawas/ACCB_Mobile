@@ -10,19 +10,38 @@
 	<?php include("jquery_includes.html"); ?>
 </head>
 <body>
-  <div data-role="page" id="news" data-add-back-btn="true">
+  <div data-role="page" id="kurse">
 
     <div data-role="header">
 		<h1>Kursangebot</h1>
-		<a href="index.php" data-icon="arrow-l">Startseite</a>
+		<a href="index.php" data-icon="arrow-l">Zur&uuml;ck</a>
     </div>
 
     <div data-role="content">
-		<div style="text-align: center;">
-        	<h2>Unser Kursangebot</h2>
-      	</div>
-    </div>
-	</div>
+	<?php
+
+	// change connection parameters in connect.php
+	include 'connect.php'; 
+
+	// Nur die Termine zeigen, welche nach dem aktuellen Datum liegen
+	$result = mysql_query("SELECT titel, beschreibung, begin, end FROM kurse ORDER BY begin LIMIT 0,10");
+	if (!$result) {
+	    die('Abfragen nicht m&ouml;glich ' . mysql_error());
+	   }
+	echo "<ul data-role='listview'>";
+	// Daten ausgeben
+	while($row = mysql_fetch_array($result))
+	{
+	    echo "<li>";
+		echo "<h3>" . $row[0] . "</h3>";
+		echo "<p>" . date("d.m.Y", strtotime($row[2])) . " bis " . date("d.m.Y", strtotime($row[3])) . "</p>";
+		echo "<ul style=margin:10px;>" . $row[1] . "</ul>";
+		echo "</li>";
+	}
+	echo "</ul>";
+	mysql_close($conn);    
+	?>
+</div>
 
 </body>
 </html>

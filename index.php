@@ -26,7 +26,9 @@
 		<a href="news.php" data-role="button">Neuigkeiten</a>
 		<a href="agenda.php" data-role="button">Veranstaltungen</a>
 		<a href="kurse.php" data-role="button">Kursangebot</a>
-		
+		<div><p style="margin-top:40px;font:Verdana; font-size:12px;">Kommentare und Fehler bitte an
+		<a href="mailto:mobil@accb-brugg.ch">Webmaster mobil</a></p>
+		</div>
     </div>
 </div>
 
