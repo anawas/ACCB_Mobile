@@ -17,7 +17,7 @@
  		<h1>ACCB</h1>
     </div>
 
-    <div data-role="content">
+    <div data-role="content" data-theme="A">
 
 		<div style="text-align: center;">
         	<h2>Willkommen beim ACCB</h2>
