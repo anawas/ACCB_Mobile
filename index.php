@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta name="generator" content="TextMate http://macromates.com/">
 	<meta name="author" content="Andreas Wassmer">
-	<?php include("jquery_includes.html"); ?>
+	<?php include 'jquery_includes.php'; ?>
 </head>
 
 <body>
@@ -17,8 +17,7 @@
  		<h1>ACCB</h1>
     </div>
 
-    <div data-role="content" data-theme="A">
-
+    <div data-role="content">
 		<div style="text-align: center;">
         	<h2>Willkommen beim ACCB</h2>
       	</div>
@@ -30,6 +29,15 @@
 		<a href="mailto:mobile@accb-brugg.ch">Webmaster Mobile</a></p>
 		</div>
     </div>
+
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar">
+		<ul>
+		<li><a href="mailto:info@accb-brugg.ch">Kontakt</a></li>
+		<li><a href="http://www.accb-brugg.ch">Normale Ansicht</a></li>
+		</ul>
+		</div>
+	</div>
 </div>
 
 </body>
