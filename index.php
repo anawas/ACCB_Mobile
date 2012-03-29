@@ -17,14 +17,19 @@
  		<h1>ACCB</h1>
     </div>
 
-    <div data-role="content">
+    <div data-role="content" data-theme="i">
 		<div style="text-align: center;">
         	<h2>Willkommen beim ACCB</h2>
       	</div>
-		
-		<a href="news.php" data-role="button">Neuigkeiten</a>
-		<a href="agenda.php" data-role="button">Veranstaltungen</a>
-		<a href="kurse.php" data-role="button">Kursangebot</a>
+			<div class="ui-grid-b"> 
+              <div class="ui-block-a" align="center"><a href="http://m.accb-brugg.ch/news.php" style="text-decoration:none;" rel="external"><img src="themes/artwork/news.png" title="Neuigkeiten" alt="Neuigkeiten" width="64px" /></a></div> 
+          
+              <div class="ui-block-b" align="center"><a href="http://m.accb-brugg.ch/agenda.php" style="text-decoration:none;" rel="external"><img src="themes/artwork/calendar.png" title="Veranstaltungen" alt="Veranstaltungen" width="64px" /></a></div>
+          
+              <div class="ui-block-c" align="center"><a href="http://m.accb-brugg.ch/kurse.php" style="text-decoration:none;" rel="external"><img src="themes/artwork/kurse.png" title="Kurse" alt="Kurse" width="64px" /></a></div>
+           	
+        </div><!-- /grid-b -->
+
 		<div><p style="margin-top:40px;font:Verdana; font-size:12px;">Kommentare und Fehler bitte an
 		<a href="mailto:mobile@accb-brugg.ch">Webmaster Mobile</a></p>
 		</div>
