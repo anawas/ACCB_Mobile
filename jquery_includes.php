@@ -1,6 +1,8 @@
 <?php
+
+	echo "<link rel='stylesheet' href='http://m.accb-brugg.ch/themes/accb-mobile.css' /> ". chr(10);
 	echo "<link rel='stylesheet' href='http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css'/>" . chr(10);
-  echo "<script type='text/javascript' src='http://code.jquery.com/jquery-1.7.1.min.js'></script>" .chr(10);
+  	echo "<script type='text/javascript' src='http://code.jquery.com/jquery-1.7.1.min.js'></script>" .chr(10);
 	echo "<script src='http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js'></script>" . chr(10);	
 
 // use this for local debugging
