@@ -1,0 +1,13 @@
+.ui-page {
+background-image: url('http://localhost/~aobrist/accb_mobile/themes/artwork/background.jpg'); /* hier muss background image rein */
+background-repeat:repeat; 
+}
+
+.ui-bar-f,
+.ui-bar-f input,
+.ui-bar-f select,
+.ui-bar-f textarea,
+.ui-bar-f button {
+background: #00066b;
+font-color: #ffffff;		
+}
